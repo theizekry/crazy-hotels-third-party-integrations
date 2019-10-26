@@ -19,6 +19,7 @@ class SearchHotelController extends Controller
      * INJECT SEARCH HOTELS SERVICES TO ACCESS THOSE SERVICES.
      *
      * SearchHotelsController constructor.
+     *
      * @param SearchHotelServices $searchHotelServices
      */
     public function __construct(SearchHotelServices $searchHotelServices)

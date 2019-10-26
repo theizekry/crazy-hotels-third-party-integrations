@@ -8,6 +8,9 @@ use App\Traits\SortableDescendingByKeyTrait;
 
 class SearchHotelServices
 {
+    /*
+     * USE THIS TRAIT TO SORT ARRAY BY KEY VIA COLLECTION
+     * */
     use SortableDescendingByKeyTrait;
 
     /**
