@@ -18,11 +18,11 @@ class BestHotelsProviderRepository implements ProvidersIntegrationsInterface
     public function search($data)
     {
         // START MAP DATA TO MEET PROVIDER REQUIREMENTS
-        $mappedData = $this->map($data);
+        $mappedData = $this->mapProviderRequest($data);
         // MOCK CURL REQUEST BASED FACTORY GENERATOR ( TO MAKE SEARCH MORE SEANCE WITH DYNAMIC RESPONSE FOR CONSUMER FOR SEARCH API ).
         $results = BestHotelsDataSourceMock::getProviderSearchResult($mappedData);
 
-        return $this->mapProviderResults($results);
+        return $this->mapProviderResponse($results);
     }
 
     /**
@@ -32,7 +32,7 @@ class BestHotelsProviderRepository implements ProvidersIntegrationsInterface
      *
      * @return array|mixed
      */
-    public function map($data)
+    public function mapProviderRequest($data)
     {
         $mappedData = [];
 
@@ -51,7 +51,7 @@ class BestHotelsProviderRepository implements ProvidersIntegrationsInterface
      *
      * @return array|mixed
      */
-    public function mapProviderResults($finalProviderResults)
+    public function mapProviderResponse($finalProviderResults)
     {
         $mapResults = [];
 

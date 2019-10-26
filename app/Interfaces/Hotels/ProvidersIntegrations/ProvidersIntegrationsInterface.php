@@ -19,7 +19,7 @@ interface ProvidersIntegrationsInterface
      * @param $data
      * @return mixed
      */
-    public function map($data);
+    public function mapProviderRequest($data);
 
     /**
      * THIS METHOD TO MAP RESULT DATA TO BE COMPATIBLE WITH OUR SERVICE.
@@ -27,5 +27,5 @@ interface ProvidersIntegrationsInterface
      * @param $finalProviderResults
      * @return mixed
      */
-    public function mapProviderResults($finalProviderResults);
+    public function mapProviderResponse($finalProviderResults);
 }
