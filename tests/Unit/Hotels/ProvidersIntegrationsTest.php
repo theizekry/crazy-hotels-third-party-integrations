@@ -44,7 +44,7 @@ class ProvidersIntegrationsTest extends TestCase
         $responses = $this->json('GET', route('hotels.providers.search'), []);
 
         $responses->assertStatus(Response::HTTP_OK)
-                  ->assertJsonStructure(['Message', 'Errors','Data']);
+                  ->assertJsonStructure(['Message', 'Errors', 'Data']);
     }
 
     /** @test */
@@ -55,7 +55,7 @@ class ProvidersIntegrationsTest extends TestCase
         ]);
 
         $responses->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY)
-            ->assertJsonStructure(['Message', 'Errors','Data']);
+            ->assertJsonStructure(['Message', 'Errors', 'Data']);
     }
 
     /** @test */
@@ -66,7 +66,29 @@ class ProvidersIntegrationsTest extends TestCase
         ]);
 
         $responses->assertStatus(Response::HTTP_OK)
-                  ->assertJsonStructure(['Message', 'Errors','Data'])
+                  ->assertJsonStructure(['Message', 'Errors', 'Data'])
                   ->assertJsonCount(0,'Data');
+    }
+
+    /** @test */
+    public function it_should_call_search_and_get_valid_json_structure_keys_according_business_requirements()
+    {
+        $responses = $this->json('GET', route('hotels.providers.search'), []);
+        $responses->assertStatus(Response::HTTP_OK)
+            ->assertJsonStructure(['Message', 'Errors', 'Data'])
+            ->assertJsonStructure([
+                'Message',
+                'Errors',
+                'Data' => [
+                   [
+                       'provider',
+                       'hotelName',
+                       'fare',
+                       'rate',
+                       'discount',
+                       'amenities'
+                   ]
+                ],
+            ]);
     }
 }
