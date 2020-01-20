@@ -1,4 +1,4 @@
-# Crazy Search Solution in Hotels With Mutliple Provider Third Party Integrations.
+### Crazy Search Solution in Hotels With Mutliple Provider Third Party Integrations.
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
